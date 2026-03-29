@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
 
   // Base URL for GitHub Pages deployment
-  base: "/manufacturing_test_monitoring_system/",
+  base: "/manufacturing-test-monitoring-system/",
 
   // Build configuration for production
   build: {
