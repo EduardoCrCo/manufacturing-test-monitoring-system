@@ -1,0 +1,87 @@
+@import "./variables.css";
+
+/* Table Container */
+.table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.table__title {
+  margin: 0 0 15px 0;
+  color: var(--text-primary);
+}
+
+/* Table Element */
+.table__element {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Header */
+.table__header {
+  background-color: var(--bg-gray-light);
+}
+
+.table__header-cell {
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-light);
+  font-size: 14px;
+}
+
+/* Table Body */
+.table__row {
+  transition: background-color 0.2s ease;
+}
+
+.table__row:hover {
+  background-color: #f8f9fa;
+}
+
+.table__row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table__cell {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+/* Result Status Cells */
+.table__result {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.table__result--pass {
+  color: var(--success-green);
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.table__result--fail {
+  color: var(--error-red);
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table__element {
+    font-size: 12px;
+  }
+
+  .table__header-cell,
+  .table__cell {
+    padding: 8px 6px;
+  }
+}

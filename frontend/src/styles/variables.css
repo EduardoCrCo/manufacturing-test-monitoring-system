@@ -1,0 +1,17 @@
+/* ========================================
+   VARIABLES MOVED TO ROOT INDEX.CSS
+   This file is now deprecated.
+   All CSS variables are centralized in /src/index.css
+   ======================================== */
+
+/* 
+  This file previously contained project-specific CSS variables.
+  To maintain a clean architecture and improve performance,
+  all variables have been moved to /src/index.css.
+  
+  This ensures:
+  - Single source of truth for all CSS variables
+  - Better Vite bundling optimization
+  - Centralized theme management
+  - Reduced HTTP requests in production
+*/

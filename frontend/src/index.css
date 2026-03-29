@@ -1,0 +1,171 @@
+/* ========================================
+   MANUFACTURING TEST MONITORING SYSTEM
+   CSS Entry Point - Optimized for GitHub Pages
+   ======================================== */
+
+/* IMPORTS FIRST - CSS Specification Requirement */
+@import url("./App.css");
+@import url("./styles/Dashboard.css");
+@import url("./styles/ErrorBoundary.css");
+@import url("./styles/FilterSection.css");
+@import url("./styles/KpiCard.css");
+@import url("./styles/Login.css");
+@import url("./styles/Navbar.css");
+@import url("./styles/TestEntry.css");
+@import url("./styles/TestResultsTable.css");
+@import url("./styles/Toast.css");
+
+/* CSS VARIABLES & STYLES */
+:root {
+  /* Theme Variables (General) */
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  /* Typography */
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  /* Project-Specific Variables */
+  /* Primary Colors */
+  --primary-blue: #2196f3;
+  --primary-blue-dark: #1976d2;
+  --primary-blue-light: rgba(33, 150, 243, 0.1);
+  --success-green: #4caf50;
+  --success-green-dark: #388e3c;
+  --success-green-light: #e8f5e8;
+  --error-red: #f44336;
+  --error-red-dark: #d32f2f;
+  --error-red-light: #ffebee;
+
+  /* Background Colors */
+  --background-grey: #f5f5f5;
+  --surface-white: #ffffff;
+  --bg-light: #f9f9f9;
+  --bg-loading: #f5f7fa;
+  --bg-error: #ffebee;
+  --bg-white: #fff;
+  --bg-gray-light: #f5f5f5;
+
+  /* Text Colors */
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-white: white;
+
+  /* Border Colors */
+  --border-color: #e0e0e0;
+  --border-light: #ddd;
+  --border-gray: #ccc;
+  --border-error: #ffcdd2;
+
+  /* Loading Spinner Colors */
+  --spinner-bg: #e3f2fd;
+  --spinner-border: #2196f3;
+
+  /* Shadows */
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* Global Styles */
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
