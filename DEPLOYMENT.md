@@ -229,14 +229,17 @@ Basándote en `.env.example`, prepara estos valores:
 ```env
 NODE_ENV=production
 PORT=10000
-MONGODB_URI=mongodb+srv://api-user:tu-password@manufacturing-cluster.xxxxx.mongodb.net/manufacturing_test_monitoring?retryWrites=true&w=majority
-JWT_SECRET=tu-jwt-secret-generado
+MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/DATABASE_NAME?retryWrites=true&w=majority
+JWT_SECRET=GENERATE_SECURE_SECRET_HERE
 JWT_EXPIRES_IN=7d
-FRONTEND_URL=https://tu-username.github.io/manufacturing_test_monitoring_system
-ALLOWED_ORIGINS=https://tu-username.github.io,http://localhost:5173
+FRONTEND_URL=https://YOUR_USERNAME.github.io/manufacturing_test_monitoring_system
+ALLOWED_ORIGINS=https://YOUR_USERNAME.github.io,http://localhost:5173
 RATE_LIMIT_WINDOW_MS=900000
 RATE_LIMIT_MAX_REQUESTS=100
 ```
+
+**⚠️ IMPORTANTE**: Reemplaza todos los valores en MAYÚSCULAS con tus credenciales reales en Render.
+**NUNCA** commitees archivos `.env` con credenciales reales.
 
 ### 🚀 Render Deployment
 
