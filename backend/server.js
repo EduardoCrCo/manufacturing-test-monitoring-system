@@ -49,8 +49,8 @@ const corsOptions = {
       "http://localhost:5173",
       "http://127.0.0.1:5173",
 
-      // Production - GitHub Pages (update with your actual username)
-      "https://your-username.github.io",
+      // Production - GitHub Pages
+      "https://eduardocrco.github.io",
 
       // Environment variable for production
       process.env.FRONTEND_URL,
