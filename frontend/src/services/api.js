@@ -72,18 +72,28 @@ API.interceptors.response.use(
           standardError.details = data?.errors || null;
           break;
         case 401:
-          standardError.type = "AUTH_ERROR";
-          standardError.message =
-            "Your session has expired. Please log in again.";
-          // Clear token and redirect to login
-          localStorage.removeItem("token");
-          if (
-            window.location.pathname !== "/" &&
-            window.location.pathname !== "/login"
-          ) {
-            setTimeout(() => {
-              window.location.href = "/";
-            }, 1000);
+          // Don't treat auth routes (login/register) as session expire
+          const isAuthRoute = error.config?.url?.includes('/auth/login') || 
+                             error.config?.url?.includes('/auth/register');
+          
+          if (isAuthRoute) {
+            // For auth routes, return the actual error message from backend
+            standardError.message = data?.message || "Invalid credentials. Please check email and password.";
+          } else {
+            // For other routes, treat as session expired
+            standardError.type = "AUTH_ERROR";
+            standardError.message =
+              "Your session has expired. Please log in again.";
+            // Clear token and redirect to login
+            localStorage.removeItem("token");
+            if (
+              window.location.pathname !== "/" &&
+              window.location.pathname !== "/login"
+            ) {
+              setTimeout(() => {
+                window.location.href = "/";
+              }, 1000);
+            }
           }
           break;
         case 403:
