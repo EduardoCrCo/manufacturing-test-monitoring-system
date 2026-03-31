@@ -90,7 +90,7 @@ class ErrorBoundary extends React.Component {
 
                   <h4>Component Stack:</h4>
                   <pre className="error-boundary__stack">
-                    {errorInfo.componentStack}
+                    {errorInfo?.componentStack || "No stack trace available"}
                   </pre>
                 </div>
               </details>

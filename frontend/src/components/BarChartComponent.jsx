@@ -19,13 +19,13 @@ const BarChartComponent = ({ data, stationData = [], type = "basic" }) => {
   if (type === "stations" && stationData.length > 0) {
     // Show data by station
     chartData = stationData.map((station) => ({
-      name: station.stationId,
+      name: `Station ${station.stationId}`,
       passed: station.passedBoards || 0,
       failed: station.failedBoards || 0,
       total: station.totalBoards || 0,
       yield: station.firstPassYield || 0,
     }));
-    title = "Performance by Station";
+    title = "Test Results by Station";
   } else if (data) {
     // Basic comparison
     chartData = [
@@ -96,14 +96,15 @@ const BarChartComponent = ({ data, stationData = [], type = "basic" }) => {
             top: 20,
             right: 30,
             left: 20,
-            bottom: 5,
+            bottom: 20,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis
             dataKey="name"
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 11, angle: -45, textAnchor: "end" }}
             axisLine={{ stroke: "#ddd" }}
+            height={60}
           />
           <YAxis tick={{ fontSize: 12 }} axisLine={{ stroke: "#ddd" }} />
           <Tooltip content={<CustomTooltip />} />

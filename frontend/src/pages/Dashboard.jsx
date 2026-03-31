@@ -82,16 +82,16 @@ const Dashboard = () => {
     try {
       setError(null);
       if (availableStations.length > 0) {
-        const stationPromises = availableStations.map(async (stationId) => {
+        const stationPromises = availableStations.map(async (station) => {
           try {
-            const data = await getStationMetrics(stationId);
+            const data = await getStationMetrics(station.stationId);
             return {
-              stationId,
+              stationId: station.stationId,
               ...data.data,
             };
           } catch (error) {
             console.error(
-              `Error fetching metrics for station ${stationId}:`,
+              `Error fetching metrics for station ${station.stationId}:`,
               error,
             );
             return null;
@@ -100,6 +100,7 @@ const Dashboard = () => {
 
         const results = await Promise.all(stationPromises);
         const validResults = results.filter((result) => result !== null);
+
         setStationMetrics(validResults);
       }
     } catch (error) {

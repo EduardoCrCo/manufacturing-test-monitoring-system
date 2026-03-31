@@ -423,8 +423,16 @@ class TestResultService {
   // Get all unique stations that have test results
   async getAvailableStations() {
     try {
-      const stations = await TestResult.distinct("stationId");
-      return stations.filter((station) => station).sort();
+      // Get unique station IDs that have test results
+      const stationIds = await TestResult.distinct("stationId");
+
+      // Get Station records for those IDs
+      const stations = await Station.find(
+        { stationId: { $in: stationIds } },
+        { stationId: 1, name: 1, _id: 0 },
+      ).sort({ stationId: 1 });
+
+      return stations; // Returns: [{ stationId: "ST-001", name: "Station Name" }]
     } catch (error) {
       throw new Error(`Error fetching available stations: ${error.message}`);
     }

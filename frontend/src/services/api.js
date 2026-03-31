@@ -73,12 +73,15 @@ API.interceptors.response.use(
           break;
         case 401:
           // Don't treat auth routes (login/register) as session expire
-          const isAuthRoute = error.config?.url?.includes('/auth/login') || 
-                             error.config?.url?.includes('/auth/register');
-          
+          const isAuthRoute =
+            error.config?.url?.includes("/auth/login") ||
+            error.config?.url?.includes("/auth/register");
+
           if (isAuthRoute) {
             // For auth routes, return the actual error message from backend
-            standardError.message = data?.message || "Invalid credentials. Please check email and password.";
+            standardError.message =
+              data?.message ||
+              "Invalid credentials. Please check email and password.";
           } else {
             // For other routes, treat as session expired
             standardError.type = "AUTH_ERROR";

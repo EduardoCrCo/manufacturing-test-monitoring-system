@@ -59,8 +59,8 @@ const FilterSection = ({
               >
                 <option value="">All Stations</option>
                 {availableStations.map((station) => (
-                  <option key={station} value={station}>
-                    {station}
+                  <option key={station.stationId} value={station.stationId}>
+                    {station.stationId} - {station.name}
                   </option>
                 ))}
               </select>
